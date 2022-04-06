@@ -2,9 +2,20 @@
   <div id="nav">
     <router-link to="/">Count</router-link>
   </div>
-  <router-view/>
+  <!-- providerをルートコンポーネントで囲う(slot部分) -->
+  <StoreProvider>
+    <router-view />
+  </StoreProvider>
 </template>
-
+<script lang="ts">
+import { defineComponent } from "vue";
+import StoreProvider from "./provider/StoreProvider.vue";
+export default defineComponent({
+  components: {
+    StoreProvider,
+  },
+});
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
